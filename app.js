@@ -15,20 +15,17 @@ function getInputAmmount(boxId) {
     let inputBox = document.getElementById(boxId);
     let inputAmmount = parseFloat(inputBox.value);
     if (isNaN(inputAmmount) || inputAmmount < 0) {
-        // inputBox.value = '';
         return alert('please input valid number')
 
     }
-    // inputBox.value = '';
     return inputAmmount;
-
 }
-// 
+
 function calculateBalance(income, expense) {
     let outcome = income - expense;
     return outcome;
 }
-// 
+
 calculateBtn.addEventListener('click', function () {
 
     /* get income input */
@@ -39,8 +36,7 @@ calculateBtn.addEventListener('click', function () {
     let currentExpense = parseFloat(totalExpense.innerText);
     totalExpense.innerText = newExpense + currentExpense;
     let findBalance = calculateBalance(userInput, newExpense);
-    // let newBalance = userInput + availableAmmount;
-    // let getBalance = newBalance - newExpense;
+
     totalBalance.innerText = findBalance;
 
 })
@@ -49,8 +45,6 @@ calculateBtn.addEventListener('click', function () {
 function calculateExpense() {
     let availableAmmount = parseFloat(totalBalance.innerText);
     let currentExpense = parseFloat(totalExpense.innerText);
-    // let percentage = parseFloat(savingAmmount.innerText);
-
     let foodExpense = getInputAmmount('food-input');
     let rentExpense = getInputAmmount('rent-input');
     let clothesExpense = getInputAmmount('clothes-input');
@@ -64,10 +58,29 @@ saveBtn.addEventListener('click', function (event) {
     let incomeAmmount = getInputAmmount('income-input');
     let percentage = incomeAmmount * percentInput / 100;
     let currentSavings = parseFloat(savingAmmount.innerText);
-    savingAmmount.innerText = currentSavings + percentage;
-    console.log(percentage);
-    let previousBalance = parseFloat(totalBalance.innerText);
-    let updateBalance = calculateBalance(previousBalance - percentage);
-    remainingBalance.innerText = updateBalance;
-    console.log(typeof updateBalance);
+    if (incomeAmmount > 0 || percentInput > 0) {
+        savingAmmount.innerText = currentSavings + percentage;
+    }
+    else {
+        return alert('please put positive number')
+    }
+    let newTotal = parseFloat(totalBalance.innerText);
+    if (percentage > newTotal) {
+        return alert('you can not save more than balance')
+
+    }
+    else if (percentInput < 0) {
+        return alert('negative numbers are not accepted')
+
+    }
+    else {
+        const updateBalance = newTotal - percentage;
+        remainingBalance.innerText = updateBalance;
+        saveInput.value = '';
+        foodInput.value = '';
+        rentInput.value = '';
+        clothesInput.value = '';
+        incomeInput.value = '';
+    }
+
 })

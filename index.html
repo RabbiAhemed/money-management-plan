@@ -7,34 +7,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>assignment</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 
 <body>
-    <h1 id="title">Money Management</h1>
-    <div>
-        <h3>Income</h3>
-        <label for="income-input">Income: <input id="income-input" type="number"></label>
-        <h3>Expenses</h3>
-        <label for="food-input">Food: <input id="food-input" type="number"></label>
-        <p>Rent: <input id="rent-input" type="number"></p>
-        <p>Clothes: <input id="clothes-input" type="number"></p>
-        <button id="calculate-btn">Calculate</button>
-    </div>
-    <h3>Total Expenses: <span id="total-expense">00</span></h3>
-    <h3>Balance: <span id="total-balance">00</span></h3>
-    <!-- Save -->
-    <form>
-        <label for="save-input">Save: <input type="number" id="save-input"> % </label>
-        <button type="submit" id="save-btn">Save</button>
-        <h3>Saving Amount: <span id="saving-ammount">00</span></h3>
-        <h3>Remaining Balance: <span id="remaining-balance">00</span></h3>
-    </form>
+    <section class="container my-5">
+        <h1 class="text-center my-4" id="title">My Money Management Plan</h1>
+        <div class="row d-flex align-items-center">
+            <div class="col-lg-6 col-s-12">
+                <img class="img-fluid" src="budgeting.jpg" alt="">
+            </div>
+            <div class="col-lg-6 col-s-12 bg-light">
+
+                <div class="text-center">
+                    <h5 class="text-center">Income</h5>
+                    <label for="income-input">Income: <input id="income-input" type="number"></label>
+                    <h5>Expenses</h5>
+                    <label class="mb-2" for="food-input">Food: <input id="food-input" type="number"></label>
+                    <p>Rent: <input id="rent-input" type="number"></p>
+                    <p>Clothes: <input id="clothes-input" type="number"></p>
+                    <button class="bg-info rounded" id="calculate-btn">Calculate</button>
+                </div>
+                <h5 class="text-center">Total Expenses: <span id="total-expense">00</span></h5>
+                <h5 class="text-center">Balance: <span id="total-balance">00</span></h5>
+                <!-- Save -->
+                <form class="text-center">
+                    <label class="mb-2" for="save-input">Save: <input type="number" id="save-input"> % </label>
+                    <button class="bg-info rounded" type="submit" id="save-btn">Save</button>
+                    <h5>Saving Amount: <span id="saving-ammount">00</span></h5>
+                    <h5>Remaining Balance: <span id="remaining-balance">00</span></h5>
+                </form>
+            </div>
+        </div>
+    </section>
     <br>
     <br>
     <br>
 
     <!-- <script src="account.js"></script> -->
     <script src="app.js"></script>
+
 </body>
 
 </html>
