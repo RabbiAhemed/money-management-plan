@@ -1,3 +1,4 @@
+// declaring global variable by getElementId
 const calculateBtn = document.getElementById('calculate-btn');
 const saveBtn = document.getElementById('save-btn');
 const incomeInput = document.getElementById('income-input');
@@ -20,28 +21,22 @@ function getInputAmmount(boxId) {
     }
     return inputAmmount;
 }
-
+// calculate balance function
 function calculateBalance(income, expense) {
     let outcome = income - expense;
     return outcome;
 }
-
+// calculate button
 calculateBtn.addEventListener('click', function () {
-
-    /* get income input */
     let userInput = getInputAmmount('income-input');
     let availableAmmount = parseFloat(totalBalance.innerText);
-
     let newExpense = calculateExpense();
     let currentExpense = parseFloat(totalExpense.innerText);
     totalExpense.innerText = newExpense + currentExpense;
     let findBalance = calculateBalance(userInput, newExpense);
-
     totalBalance.innerText = findBalance;
-
 })
-
-
+// function to calculate expense
 function calculateExpense() {
     let availableAmmount = parseFloat(totalBalance.innerText);
     let currentExpense = parseFloat(totalExpense.innerText);
@@ -76,6 +71,7 @@ saveBtn.addEventListener('click', function (event) {
     else {
         const updateBalance = newTotal - percentage;
         remainingBalance.innerText = updateBalance;
+        // clear input fields values
         saveInput.value = '';
         foodInput.value = '';
         rentInput.value = '';
